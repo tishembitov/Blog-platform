@@ -1,0 +1,57 @@
+spring:
+  application:
+    name: blog-application
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/blog
+    username: user
+    password: password
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 300000
+      connection-timeout: 20000
+      max-lifetime: 1200000
+
+  jpa:
+    hibernate:
+      ddl-auto: validate # используем validate, так как схема создается через Liquibase
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        show_sql: false
+        use_sql_comments: true
+        jdbc:
+          batch_size: 25
+          batch_versioned_data: true
+        order_inserts: true
+        order_updates: true
+        default_schema: public
+    open-in-view: false
+
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    enabled: true
+    default-schema: public
+    liquibase-schema: public
+    drop-first: false
+
+  sql:
+    init:
+      mode: always
+      platform: postgresql
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    liquibase: INFO
+
+jwt:
+  secret: your-256-bit-secret-key-here-make-it-at-least-32-bytes-long
+  expiration: 86400000 # 24 hours
+
+server:
+  port: 8080
