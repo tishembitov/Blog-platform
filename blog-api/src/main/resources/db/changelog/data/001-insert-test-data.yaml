@@ -1,0 +1,334 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1-insert-users
+      author: tishembitov
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  value: "026e9041-724f-4f16-b294-f13ad2fa1fe0"
+              - column:
+                  name: email
+                  value: user@test.com
+              - column:
+                  name: password
+                  value: $2a$10$/VtMKj.fEeuHETBC0n4j6eIYxxBBsF1lR1MzOLeQ/M0E1jI6aeVWq
+
+              - column:
+                  name: name
+                  value: Test user
+              - column:
+                  name: created_at
+                  valueDate: 2024-01-01T00:00:00
+  - changeSet:
+      id: 2-insert-categories
+      author: tishembitov
+      changes:
+        - insert:
+            tableName: categories
+            columns:
+              - column:
+                  name: id
+                  value: "c1d2e3f4-5678-90ab-cdef-111111111111"
+              - column:
+                  name: name
+                  value: Technology
+        - insert:
+            tableName: categories
+            columns:
+              - column:
+                  name: id
+                  value: "c1d2e3f4-5678-90ab-cdef-222222222222"
+              - column:
+                  name: name
+                  value: Science
+        - insert:
+            tableName: categories
+            columns:
+              - column:
+                  name: id
+                  value: "c1d2e3f4-5678-90ab-cdef-333333333333"
+              - column:
+                  name: name
+                  value: Travel
+
+  - changeSet:
+      id: 3-insert-tags
+      author: tishembitov
+      changes:
+        - insert:
+            tableName: tags
+            columns:
+              - column:
+                  name: id
+                  value: "a1a2a3a4-d5e6-47a8-b9c0-111111111111"
+              - column:
+                  name: name
+                  value: Java
+        - insert:
+            tableName: tags
+            columns:
+              - column:
+                  name: id
+                  value: "a1a2a3a4-d5e6-47a8-b9c0-222222222222"
+              - column:
+                  name: name
+                  value: Spring Boot
+        - insert:
+            tableName: tags
+            columns:
+              - column:
+                  name: id
+                  value: "a1a2a3a4-d5e6-47a8-b9c0-333333333333"
+              - column:
+                  name: name
+                  value: Programming
+        - insert:
+            tableName: tags
+            columns:
+              - column:
+                  name: id
+                  value: "a1a2a3a4-d5e6-47a8-b9c0-444444444444"
+              - column:
+                  name: name
+                  value: Tutorial
+        - insert:
+            tableName: tags
+            columns:
+              - column:
+                  name: id
+                  value: "a1a2a3a4-d5e6-47a8-b9c0-555555555555"
+              - column:
+                  name: name
+                  value: Best Practices
+
+  - changeSet:
+      id: 4-insert-posts
+      author: tishembitov
+      changes:
+        - insert:
+            tableName: posts
+            columns:
+              - column:
+                  name: id
+                  value: "b1f2e3d4-c5b6-4798-9012-111111111111"
+              - column:
+                  name: title
+                  value: Getting Started with Spring Boot 3
+              - column:
+                  name: content
+                  value: |
+                    Spring Boot 3 is the latest major release of the popular Java framework. 
+                    In this comprehensive guide, we'll explore the new features and improvements 
+                    that make Spring Boot 3 a game-changer for modern application development.
+                    
+                    Key features include:
+                    - Native compilation support with GraalVM
+                    - Jakarta EE 9+ support
+                    - Improved observability
+                    - Better performance metrics
+                    
+                    Let's dive deep into each of these features and see how they can benefit your projects.
+              - column:
+                  name: status
+                  value: PUBLISHED
+              - column:
+                  name: reading_time
+                  valueNumeric: 8
+              - column:
+                  name: author_id
+                  value: "026e9041-724f-4f16-b294-f13ad2fa1fe0"
+              - column:
+                  name: category_id
+                  value: "c1d2e3f4-5678-90ab-cdef-111111111111"
+              - column:
+                  name: created_at
+                  valueDate: 2024-01-10T14:30:00
+              - column:
+                  name: updated_at
+                  valueDate: 2024-01-10T14:30:00
+        - insert:
+            tableName: posts
+            columns:
+              - column:
+                  name: id
+                  value: "b1f2e3d4-c5b6-4798-9012-222222222222"
+              - column:
+                  name: title
+                  value: Understanding Microservices Architecture
+              - column:
+                  name: content
+                  value: |
+                    Microservices architecture has revolutionized how we build and deploy applications.
+                    This article explores the fundamental concepts, benefits, and challenges of adopting
+                    a microservices approach in your organization.
+                    
+                    We'll cover:
+                    - Service decomposition strategies
+                    - Communication patterns
+                    - Data management
+                    - Testing strategies
+                    - Deployment best practices
+              - column:
+                  name: status
+                  value: PUBLISHED
+              - column:
+                  name: reading_time
+                  valueNumeric: 12
+              - column:
+                  name: author_id
+                  value: "026e9041-724f-4f16-b294-f13ad2fa1fe0"
+              - column:
+                  name: category_id
+                  value: "c1d2e3f4-5678-90ab-cdef-111111111111"
+              - column:
+                  name: created_at
+                  valueDate: 2024-01-15T09:00:00
+              - column:
+                  name: updated_at
+                  valueDate: 2024-01-16T10:15:00
+        - insert:
+            tableName: posts
+            columns:
+              - column:
+                  name: id
+                  value: "b1f2e3d4-c5b6-4798-9012-333333333333"
+              - column:
+                  name: title
+                  value: JPA Optimization Techniques
+              - column:
+                  name: content
+                  value: |
+                    This is a draft post about JPA optimization.
+                    Topics to cover:
+                    - N+1 problem solutions
+                    - Query optimization
+                    - Caching strategies
+                    - Batch processing
+              - column:
+                  name: status
+                  value: DRAFT
+              - column:
+                  name: reading_time
+                  valueNumeric: 15
+              - column:
+                  name: author_id
+                  value: "026e9041-724f-4f16-b294-f13ad2fa1fe0"
+              - column:
+                  name: category_id
+                  value: "c1d2e3f4-5678-90ab-cdef-111111111111"
+              - column:
+                  name: created_at
+                  valueDate: 2024-01-20T16:45:00
+              - column:
+                  name: updated_at
+                  valueDate: 2024-01-21T11:30:00
+        - insert:
+            tableName: posts
+            columns:
+              - column:
+                  name: id
+                  value: "b1f2e3d4-c5b6-4798-9012-444444444444"
+              - column:
+                  name: title
+                  value: The Science of Climate Change
+              - column:
+                  name: content
+                  value: |
+                    Climate change is one of the most pressing issues of our time.
+                    This article examines the scientific evidence, causes, and potential
+                    solutions to address this global challenge.
+                    
+                    Key points discussed:
+                    - Greenhouse gas emissions
+                    - Temperature trends
+                    - Impact on ecosystems
+                    - Renewable energy solutions
+              - column:
+                  name: status
+                  value: PUBLISHED
+              - column:
+                  name: reading_time
+                  valueNumeric: 10
+              - column:
+                  name: author_id
+                  value: "026e9041-724f-4f16-b294-f13ad2fa1fe0"
+              - column:
+                  name: category_id
+                  value: "c1d2e3f4-5678-90ab-cdef-222222222222"
+              - column:
+                  name: created_at
+                  valueDate: 2024-01-18T13:00:00
+              - column:
+                  name: updated_at
+                  valueDate: 2024-01-18T13:00:00
+
+  - changeSet:
+      id: 5-insert-post-tags
+      author: tishembitov
+      changes:
+        - insert:
+            tableName: post_tags
+            columns:
+              - column:
+                  name: post_id
+                  value: "b1f2e3d4-c5b6-4798-9012-111111111111"
+              - column:
+                  name: tag_id
+                  value: "a1a2a3a4-d5e6-47a8-b9c0-111111111111"
+        - insert:
+            tableName: post_tags
+            columns:
+              - column:
+                  name: post_id
+                  value: "b1f2e3d4-c5b6-4798-9012-111111111111"
+              - column:
+                  name: tag_id
+                  value: "a1a2a3a4-d5e6-47a8-b9c0-222222222222"
+        - insert:
+            tableName: post_tags
+            columns:
+              - column:
+                  name: post_id
+                  value: "b1f2e3d4-c5b6-4798-9012-111111111111"
+              - column:
+                  name: tag_id
+                  value: "a1a2a3a4-d5e6-47a8-b9c0-444444444444"
+        - insert:
+            tableName: post_tags
+            columns:
+              - column:
+                  name: post_id
+                  value: "b1f2e3d4-c5b6-4798-9012-222222222222"
+              - column:
+                  name: tag_id
+                  value: "a1a2a3a4-d5e6-47a8-b9c0-333333333333"
+        - insert:
+            tableName: post_tags
+            columns:
+              - column:
+                  name: post_id
+                  value: "b1f2e3d4-c5b6-4798-9012-222222222222"
+              - column:
+                  name: tag_id
+                  value: "a1a2a3a4-d5e6-47a8-b9c0-555555555555"
+        - insert:
+            tableName: post_tags
+            columns:
+              - column:
+                  name: post_id
+                  value: "b1f2e3d4-c5b6-4798-9012-333333333333"
+              - column:
+                  name: tag_id
+                  value: "a1a2a3a4-d5e6-47a8-b9c0-111111111111"
+        - insert:
+            tableName: post_tags
+            columns:
+              - column:
+                  name: post_id
+                  value: "b1f2e3d4-c5b6-4798-9012-333333333333"
+              - column:
+                  name: tag_id
+                  value: "a1a2a3a4-d5e6-47a8-b9c0-555555555555"

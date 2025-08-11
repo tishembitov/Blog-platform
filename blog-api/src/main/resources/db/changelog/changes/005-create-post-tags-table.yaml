@@ -1,0 +1,48 @@
+databaseChangeLog:
+  - changeSet:
+      id: 005-create-post-tags-table
+      author: tishembitov
+      changes:
+        - createTable:
+            tableName: post_tags
+            columns:
+              - column:
+                  name: post_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+              - column:
+                  name: tag_id
+                  type: UUID
+                  constraints:
+                    nullable: false
+        - addPrimaryKey:
+            tableName: post_tags
+            columnNames: post_id, tag_id
+            constraintName: pk_post_tags
+        - addForeignKeyConstraint:
+            baseTableName: post_tags
+            baseColumnNames: post_id
+            referencedTableName: posts
+            referencedColumnNames: id
+            constraintName: fk_post_tags_post
+            onDelete: CASCADE
+        - addForeignKeyConstraint:
+            baseTableName: post_tags
+            baseColumnNames: tag_id
+            referencedTableName: tags
+            referencedColumnNames: id
+            constraintName: fk_post_tags_tag
+            onDelete: CASCADE
+        - createIndex:
+            tableName: post_tags
+            indexName: idx_post_tags_post_id
+            columns:
+              - column:
+                  name: post_id
+        - createIndex:
+            tableName: post_tags
+            indexName: idx_post_tags_tag_id
+            columns:
+              - column:
+                  name: tag_id
